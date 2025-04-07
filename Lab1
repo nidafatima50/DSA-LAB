@@ -1,0 +1,52 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+	int a[8],index;
+
+	cout<<"Enter elements of array:\n ";
+
+		for(int i=0;i<7;i++)
+
+		{
+
+	cin>>a[i];
+
+}
+
+cout<<"enter index element to delete ";
+
+cin>>index;
+
+
+
+	for(int i=0;i<7;i++)
+
+	{
+
+		a[i]=a[i+1];
+
+	}
+
+	cout<<"\nThe new array is:\n ";
+
+	for(int i=0;i<5;i++)
+
+	{
+
+		cout<<a[i]<<"";
+
+	}
+
+	cout<<"\nElement deleted successfully";
+
+	return 0;
+
+	
+
+}
+
