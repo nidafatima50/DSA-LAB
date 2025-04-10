@@ -1,0 +1,80 @@
+#include <iostream>
+
+using namespace std;
+
+#define MAX 3
+
+string stack[MAX];
+
+int top = -1; 
+
+void add(string plate) {
+
+    if (top >= MAX - 1) {
+
+        cout << "stack is full" << endl;
+
+    } else {
+
+        top++;
+
+        stack[top] = plate;
+
+        cout << "Plate " << plate<< endl;
+
+    }
+
+}
+
+void removePlate() {
+
+    if (top == -1) {
+
+        cout << " Stack is empty" << endl;
+
+    } else {
+
+        cout << "Plate" << stack[top] << endl;
+
+        top--;
+
+    }
+
+}
+
+void checkTop() {
+
+    if (top == -1) {
+
+        cout << "Stack is empty" << endl;
+
+    } else {
+
+        cout << "Top plate is: " << stack[top] << " " << endl;
+
+    }
+
+}
+
+int main() { 
+
+    add(" fries");
+
+    add("biryani");
+
+    add("burger");
+
+    checkTop();    
+
+    removePlate();
+
+    removePlate();
+
+    removePlate();
+
+    checkTop();     
+
+    return 0;
+
+}
+
