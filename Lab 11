@@ -1,0 +1,118 @@
+#include <iostream>
+
+using namespace std;
+
+struct Node {
+
+    char data;
+
+    Node* left;
+
+    Node* right;
+
+
+
+    Node(char val) {
+
+        data = val;
+
+        left = NULL;
+
+        right = NULL;
+
+    }
+
+};
+
+void preOrder(Node* root) {
+
+    if (root == NULL) return;
+
+    cout << root->data << " ";
+
+    preOrder(root->left);
+
+    preOrder(root->right);
+
+}
+
+void inOrder(Node* root) {
+
+    if (root == NULL) return;
+
+    inOrder(root->left);
+
+    cout << root->data << " ";
+
+    inOrder(root->right);
+
+}
+
+void postOrder(Node* root) {
+
+    if (root == NULL) return;
+
+    postOrder(root->left);
+
+    postOrder(root->right);
+
+    cout << root->data << " ";
+
+}
+
+
+
+int main() {
+
+    Node* root = new Node('A');
+
+    root->left = new Node('B');
+
+    root->right = new Node('C');
+
+
+
+    root->left->left = new Node('D');
+
+    root->left->right = new Node('E');
+
+    root->right->left = new Node('F');
+
+    root->right->right = new Node('G');
+
+
+
+    root->left->left->left = new Node('H');
+
+    root->left->left->right = new Node('I');
+
+
+
+    cout << "Pre-order Traversal: ";
+
+    preOrder(root);
+
+    cout << endl;
+
+
+
+    cout << "In-order Traversal: ";
+
+    inOrder(root);
+
+    cout << endl;
+
+
+
+    cout << "Post-order Traversal: ";
+
+    postOrder(root);
+
+    cout << endl;
+
+
+
+    return 0;
+
+}
+
