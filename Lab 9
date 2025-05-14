@@ -1,0 +1,148 @@
+#include <iostream>
+
+using namespace std;
+
+#define MAX 100
+
+class OrderQueue {
+
+private: 
+
+    int orders[MAX];             
+
+    int front, rear;             
+
+public:
+
+    OrderQueue() {
+
+        front = -1;
+
+        rear = -1;
+
+    }
+
+    void addOrder(int orderNumber) {
+
+        if (rear == MAX - 1) {
+
+            cout << "Queue is overflow" << endl;
+
+            return;
+
+        }
+
+        if (front == -1) front = 0; 
+
+        rear++;
+
+        orders[rear] = orderNumber;
+
+        cout << "Order " << orderNumber << " added to the queue." << endl;
+
+    }
+
+    void processOrder() {
+
+        if (front == -1 || front > rear) {
+
+            cout << "No orders to process" << endl;
+
+            return;
+
+        }
+
+        cout << "Processing order number: " << orders[front] << endl;
+
+        front++;
+
+    }
+
+    void displayOrders() {
+
+        if (front == -1 || front > rear) {
+
+            cout << "queue is empty." << endl;
+
+            return;
+
+        }
+
+        cout << "Current Orders in the Queue: ";
+
+        for (int i = front; i <= rear; i++) {
+
+            cout << orders[i] << " ";
+
+        }
+
+        cout << endl;
+
+    }
+
+};
+
+int main() {
+
+    OrderQueue restaurantQueue;
+
+    int choice, orderNumber;
+
+    do {
+
+        cout << "\n=== Restaurant Order Queue ===" << endl;
+
+        cout << "1. Add Order" << endl;
+
+        cout << "2. Process Order" << endl;
+
+        cout << "3. Display Orders" << endl;
+
+        cout << "4. Exit" << endl;
+
+        cout << "Enter your choice: ";
+
+        cin >> choice;
+
+        if (choice == 1) {
+
+            cout << "Enter Order Number to add: ";
+
+            cin >> orderNumber;
+
+            restaurantQueue.addOrder(orderNumber);
+
+        }
+
+        else if (choice == 2) {
+
+            restaurantQueue.processOrder();
+
+        }
+
+        else if (choice == 3) {
+
+            restaurantQueue.displayOrders();
+
+        }
+
+        else if (choice == 4) {
+
+            cout << "Exiting program. Goodbye!" << endl;
+
+        }
+
+        else {
+
+            cout << "Invalid choice! Please enter 1-4." << endl;
+
+        }
+
+    } while (choice != 4);
+
+    return 0;
+
+}
+
+
+
